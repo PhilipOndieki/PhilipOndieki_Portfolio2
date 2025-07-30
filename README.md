@@ -2,6 +2,15 @@
 
 A modern, responsive portfolio website showcasing my journey as a Full-Stack Developer with a background in Real Estate and Property Management. Features a sleek dark/light mode toggle and cutting-edge web technologies.
 
+## 👤 Author
+
+**Philip Barongo Ondieki**
+- GitHub: [@PhilipOndieki](https://github.com/PhilipOndieki)
+- LinkedIn: [Philip Barongo](https://www.linkedin.com/in/philip-barongo-8b215028a)
+- Twitter: [@philoloke](https://x.com/philoloke)
+- Email: philipbarongo30@gmail.com
+
+
 ## 🌐 Live Demo
 
 Visit the live website: https://philip2.netlify.app/
@@ -202,32 +211,6 @@ Add new skills by duplicating skill items:
 
 /* Desktop: > 768px (default) */
 ```
-
-## 🔧 Development
-
-### **Local Development:**
-```bash
-# Clone and navigate to project
-git clone https://github.com/PhilipOndieki/portfolio-website.git
-cd portfolio-website
-
-# Start local server (choose one)
-python -m http.server 8000    # Python
-npx http-server -p 8000       # Node.js
-php -S localhost:8000         # PHP
-
-# Open browser
-open http://localhost:8000
-```
-
-## 👤 Author
-
-**Philip Barongo Ondieki**
-- GitHub: [@PhilipOndieki](https://github.com/PhilipOndieki)
-- LinkedIn: [Philip Barongo](https://www.linkedin.com/in/philip-barongo-8b215028a)
-- Twitter: [@philoloke](https://x.com/philoloke)
-- Email: philipbarongo30@gmail.com
-
 ## 🤝 Contributing
 
 1. Fork the repository
