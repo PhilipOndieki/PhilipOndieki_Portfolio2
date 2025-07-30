@@ -33,7 +33,6 @@ Visit the live website: https://philip2.netlify.app/
 - **Contact Form** - Functional contact form with real-time validation
 - **CV Download** - One-click CV download in text format
 - **Mobile Navigation** - Collapsible hamburger menu for mobile devices
-- 
 ### 🔗 **Integration**
 - **Social Links** - Direct links to GitHub, LinkedIn, and Twitter profiles
 - **Project Showcase** - Featured project with live demo links
