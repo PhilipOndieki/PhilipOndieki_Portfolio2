@@ -18,9 +18,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize scroll effects
     initScrollEffects();
     
+    // Initialize hire me button and clickable image
+    initHireMeButton();
+    initClickableImage();
+    
     // Mark page as loaded
     document.body.classList.add('loaded');
 });
+
+// Hire Me Button - Smooth Scroll to Contact
+function initHireMeButton() {
+    const hireMeBtn = document.querySelector('.hire-me-btn');
+    if (hireMeBtn) {
+        hireMeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const contactSection = document.querySelector('#contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+}
+
+// Clickable Profile Image - Smooth Scroll to Contact
+function initClickableImage() {
+    const profileImage = document.querySelector('.clickable-image');
+    if (profileImage) {
+        profileImage.addEventListener('click', function(e) {
+            e.preventDefault();
+            const contactSection = document.querySelector('#contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+}
 
 // Theme Management
 function initTheme() {
@@ -149,37 +187,9 @@ function initAnimations() {
 
     // Observe elements for animation
     const animateElements = document.querySelectorAll(
-        '.section-header, .about-text, .skills-grid, .education-grid, .project-card, .interests-grid, .contact-content'
+        '.section-header, .about-text, .skills-container, .timeline, .projects-grid, .interests-grid, .contact-content'
     );
     animateElements.forEach(el => observer.observe(el));
-
-    // Skills animation with stagger effect
-    const skillItems = document.querySelectorAll('.skill-item');
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const skillsGrid = entry.target;
-                const skills = skillsGrid.querySelectorAll('.skill-item');
-                
-                skills.forEach((skill, index) => {
-                    setTimeout(() => {
-                        skill.style.opacity = '1';
-                        skill.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-            }
-        });
-    }, { threshold: 0.1 });
-
-    const skillsGrid = document.querySelector('.skills-grid');
-    if (skillsGrid) {
-        skillItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'all 0.6s ease';
-        });
-        skillObserver.observe(skillsGrid);
-    }
 }
 
 // Contact Form Management
@@ -316,7 +326,7 @@ function initCVDownload() {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'PHILIP_BARONGO_ONDIEKI_CV.txt';
+        a.download = 'Philip_Ondieki_CV.txt';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -337,62 +347,192 @@ Email: philipbarongo30@gmail.com
 GitHub: https://github.com/PhilipOndieki
 LinkedIn: https://www.linkedin.com/in/philip-barongo-8b215028a
 Twitter: https://x.com/philoloke
+Portfolio: https://philip2.netlify.app/
 
-PROFESSIONAL PROFILE
-Dynamic and driven tech enthusiast with a background in real estate and a growing portfolio of software development projects. Experienced in property management and valuation, now transitioning into full-stack development with a strong command of Python, JavaScript, Flask, React, and the MERN stack. Known for a hands-on approach to problem-solving, a passion for building systems that solve real-world problems, and a proactive mindset that bridges business and technology.
+PROFESSIONAL SUMMARY
+Dynamic and driven full-stack developer specializing in MERN stack development with expertise in building real-time applications, RESTful APIs, and responsive web applications. Experienced in creating end-to-end solutions from database design to frontend implementation, with a focus on user experience and modern development practices.
 
 TECHNICAL SKILLS
-Languages: Python, JavaScript, HTML, CSS, SQL
-Frameworks: Flask, React, Express.js, Node.js
-Databases: MongoDB, SQLite
-Tools: Git, VS Code, Postman
-Concepts: Object-Oriented Programming, REST APIs, Authentication, UI/UX principles
 
-FEATURED PROJECT
-Instadev - MERN Stack Developer Platform
-• Full-stack platform connecting developers in real time
-• Implemented authentication, real-time online status, and profile matching
-• Built using MongoDB, Express, React, and Node.js
-• Features responsive design and user-friendly interface
-• Live at: https://instadev00.netlify.app/
+Frontend Development:
+HTML5, CSS3, JavaScript (ES6+), React.js, React 19, Tailwind CSS, CSS Custom Properties, Vite, React Router, Intersection Observer API, Three.js, Responsive Design, UI/UX Design
+
+Backend Development:
+Node.js, Express.js, RESTful API Design, Socket.io, JWT (JSON Web Tokens), API Authentication, CORS, Custom Middleware, Real-time Communication
+
+Database & Data Management:
+MongoDB, Mongoose, MySQL, SQL, Database Design, Normalization, ERD (Entity Relationship Diagrams), CRUD Operations
+
+Authentication & Security:
+Clerk Authentication, JWT, API Key Authentication, Secure Payment Integration
+
+Tools & Integrations:
+Git & GitHub, Cloudinary, Paystack (M-Pesa Integration), PayPal SDK, Stripe.js, localStorage, State Management (React Hooks), Python, Flask
+
+Additional Skills:
+Version Control, Agile Methodology, Problem Solving, Technical Documentation
+
+FEATURED PROJECTS
+
+1. Mindful Haven - MERN Stack Wellness Blog
+   Full-stack wellness and mental health blog platform with user authentication, rich content management, and social engagement features (likes, comments, bookmarks).
+   Technologies: MongoDB, Express.js, React.js, Node.js, Clerk Authentication, Tailwind CSS
+   Live: https://mindfulhaven2.onrender.com
+   GitHub: https://github.com/PhilipOndieki/Mindfulhaven.git
+   
+   Key Features:
+   • User authentication with Clerk
+   • Rich content management system
+   • Social engagement (likes, comments, bookmarks)
+   • Responsive wellness-focused design
+
+2. InstaDev - Developer Social Network Platform
+   Modern social networking platform connecting developers worldwide based on skill level, technology stack, and coding journey with glassmorphic UI.
+   Technologies: HTML5, CSS3, Vanilla JavaScript, Three.js, Vite
+   Live: https://instadev00.netlify.app/
+   GitHub: https://github.com/PhilipOndieki/instadev.git
+   
+   Key Features:
+   • User authentication with profile customization
+   • Developer discovery and filtering
+   • Project showcase with GitHub integration
+   • Friend request and networking system
+   • Glassmorphic UI with 3D background effects
+
+3. Personal Portfolio Website
+   Modern, professional portfolio website with dark/light theme system, smooth scroll animations, responsive design, and functional contact form.
+   Technologies: HTML5, CSS3, JavaScript (ES6+), CSS Custom Properties, Intersection Observer API
+   Live: https://philip2.netlify.app/
+   GitHub: https://github.com/PhilipOndieki/PhilipOndieki_Portfolio2.git
+   
+   Key Features:
+   • Dark/light theme toggle with localStorage persistence
+   • Smooth scroll animations using Intersection Observer
+   • Fully responsive design
+   • Real-time contact form validation
+
+4. Echolia - Real-Time Chat Application
+   Feature-rich real-time chat application with Socket.io, private messaging, group chats, typing indicators, message reactions, and file sharing.
+   Technologies: Socket.io, React, Node.js, Express, MongoDB, Cloudinary, JWT
+   Live: https://echolia2.onrender.com
+   GitHub: https://github.com/PhilipOndieki/Echolia.git
+   
+   Key Features:
+   • Real-time messaging with Socket.io
+   • Private messaging and group chats
+   • Typing indicators and message reactions
+   • File sharing with Cloudinary integration
+   • Read receipts and browser notifications
+
+5. Product API - RESTful Express.js & MongoDB
+   Comprehensive RESTful API with full CRUD operations, API key authentication, custom middleware, and advanced filtering capabilities.
+   Technologies: Express.js, MongoDB, Mongoose, Node.js, JWT, CORS
+   GitHub: https://github.com/PhilipOndieki/restfulApi.git
+   
+   Key Features:
+   • Complete CRUD operations
+   • API key authentication
+   • Custom middleware for request processing
+   • Advanced filtering and pagination
+   • Full-text search capability
+
+6. Kenya National Library System - Database Design
+   Complete relational database management system with 9 interconnected tables, all relationship types, and comprehensive constraints.
+   Technologies: MySQL, SQL, Database Design, Normalization, ERD
+   GitHub: https://github.com/PhilipOndieki/LibraryManagementSystem.git
+   
+   Key Features:
+   • 9 interconnected tables with proper relationships
+   • All relationship types (1-1, 1-Many, Many-Many)
+   • Comprehensive constraints and data integrity
+   • Real-world Kenyan context data
+
+7. Lipa na M-Pesa - Event Ticket Payment Integration
+   Responsive event ticket purchasing application with integrated M-Pesa payment processing through Paystack for the Kenyan market.
+   Technologies: HTML5, CSS3, Vanilla JavaScript, Paystack, PayPal SDK, Stripe.js, Font Awesome
+   GitHub: https://github.com/PhilipOndieki/lipa-na-mpesa.git
+   
+   Key Features:
+   • M-Pesa integration via Paystack
+   • Multiple payment gateways (PayPal, Stripe)
+   • Mobile-first responsive design
+   • Secure KES currency transactions
 
 EDUCATION
+
+Power Learn Project
+Advanced Software Development Program
+June 2025 - December 2025
+Intensive program focusing on modern software development practices and advanced full-stack technologies.
+
 Bachelor of Real Estate and Property Management
-Technical University of Kenya - Graduated: 2024
+Technical University of Kenya
+July 2019 - November 2024
+Comprehensive degree program combining business fundamentals with real estate expertise.
 
 CS50's Introduction to Computer Science
-Harvard University (via edX) - 2024
+Harvard University (via edX)
+June 2024 - December 2024
+Rigorous introduction to computer science covering C, Python, SQL, JavaScript, HTML, CSS, and fundamental CS concepts.
 
-Software Development Program
-PLP Academy - 2024
+Angela Yu Full Stack Web Development
+Complete Full Stack Development Bootcamp
+July 2023 - March 2024
+Comprehensive bootcamp covering frontend and backend technologies, databases, and deployment.
+
+Python for Data Analysis
+Data Analysis and Visualization
+August 2022 - June 2023
+Advanced Python programming for data manipulation, analysis, and visualization.
+
+Python for Beginners
+Python Programming Fundamentals
+January 2022 - July 2022
+Foundation course covering Python syntax, data structures, and programming fundamentals.
 
 PROFESSIONAL EXPERIENCE
-Asset Valuer - KenVal Realtors EA Ltd (May 2025 – June 2025)
-• Conducted fair market value assessments
+
+Asset Valuer
+KenVal Realtors EA Ltd
+May 2025 – June 2025
+• Conducted fair market value assessments for various properties
 • Verified asset inventory using Excel models
+• Prepared detailed valuation reports
 
-Property Manager - Wabunifu Realtors (Jan 2024 – Dec 2024)
-• Supervised operations, tenant relations, and lease negotiations
-• Managed monthly reporting and client communications
+Property Manager
+Wabunifu Realtors
+January 2024 – December 2024
+• Supervised daily property operations and tenant relations
+• Managed lease negotiations and renewals
+• Handled monthly reporting and client communications
 
-Marketing Specialist - Danan Tech Electronics (Mar 2023 – Nov 2023)
+Marketing Specialist
+Danan Tech Electronics
+March 2023 – November 2023
 • Led marketing campaigns, increasing sales by 25%
 • Enhanced brand loyalty through strategic marketing initiatives
+• Managed social media presence and customer engagement
 
-Property Management Assistant - Ministry of Lands (Jan 2022 – Feb 2023)
-• Supported lease processing and registration
+Property Management Assistant
+Ministry of Lands
+January 2022 – February 2023
+• Supported lease processing and property registration
 • Provided client services for real estate operations
+• Maintained property records and documentation
 
 INTERESTS
-• Web Development and modern frameworks
-• Tech Innovations, AI, and machine learning
-• Open Source contribution and community collaboration
-• Real estate innovation through technology
+• Web Development and Modern Frameworks
+• Tech Innovations, AI, and Machine Learning
+• Open Source Contribution and Community Collaboration
+• Real Estate Innovation Through Technology
+• Building Solutions for Real-World Problems
 
-REFERENCES AVAILABLE UPON REQUEST
+REFERENCES
+Available upon request
 
-Generated from: ${window.location.href}
-Date: ${new Date().toLocaleDateString()}`;
+---
+Generated: ${new Date().toLocaleDateString()}
+Portfolio: https://philip2.netlify.app/`;
 }
 
 function showDownloadFeedback(button) {
@@ -450,20 +590,6 @@ function updateParallaxEffect() {
     }
 }
 
-// Enhanced Project Card Interactions
-document.addEventListener('DOMContentLoaded', function() {
-    const projectCard = document.querySelector('.project-card');
-    if (projectCard) {
-        projectCard.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        projectCard.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    }
-});
-
 // Keyboard Navigation Support
 document.addEventListener('keydown', function(e) {
     // ESC key to close mobile menu
@@ -505,45 +631,4 @@ window.addEventListener('scroll', debouncedUpdateActiveNavLink);
 // Error Handling
 window.addEventListener('error', function(e) {
     console.error('JavaScript error:', e.error);
-    // Could integrate with error reporting service here
 });
-
-// Analytics and Performance Monitoring
-function trackUserInteraction(action, element) {
-    // This could integrate with analytics services
-    console.log(`User interaction: ${action} on ${element}`);
-}
-
-// Add interaction tracking to important elements
-document.addEventListener('DOMContentLoaded', function() {
-    // Track theme toggle usage
-    document.getElementById('themeToggle').addEventListener('click', () => {
-        trackUserInteraction('theme_toggle', 'navigation');
-    });
-    
-    // Track CV downloads
-    const downloadBtn = document.getElementById('downloadCV');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', () => {
-            trackUserInteraction('cv_download', 'about_section');
-        });
-    }
-    
-    // Track form submissions
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', () => {
-            trackUserInteraction('form_submit', 'contact_section');
-        });
-    }
-});
-
-// Service Worker Registration (for future PWA features)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Uncomment when you have a service worker file
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => console.log('SW registered'))
-        //     .catch(registrationError => console.log('SW registration failed'));
-    });
-}
