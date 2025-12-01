@@ -565,6 +565,13 @@ section {
 }
 
 /* Project-specific backgrounds */
+.dualscope-bg::before {
+    content: 'DualScope Engineering';
+    color: var(--bg-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
 .mindful-haven-bg::before {
     content: 'Mindful Haven';
     color: var(--bg-primary);
