@@ -800,9 +800,10 @@ section {
     margin-bottom: 2rem;
 }
 
+/* Update existing contact-icon */
 .contact-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background: var(--accent-primary);
     border-radius: 50%;
     display: flex;
@@ -811,42 +812,69 @@ section {
     flex-shrink: 0;
 }
 
+.contact-icon i {
+    color: var(--bg-primary);
+    font-size: 1.5rem;
+}
+
 /* Clickable Contact Icons */
 .contact-icon-link {
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
+    position: relative;
+}
+
+/* Subtle pulse animation */
+@keyframes subtle-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.contact-icon-link {
+    animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+.contact-icon-link:hover {
+    animation: none; /* Stop pulse on hover */
 }
 
 /* Phone Icon Hover - Blue */
 .contact-icon-phone:hover {
     background: var(--accent-primary);
-    transform: scale(1.15);
-    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+    transform: scale(1.2);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.5);
 }
 
 /* Email Icon Hover - Gmail Red */
 .contact-icon-email:hover {
     background: #EA4335;
-    transform: scale(1.15);
-    box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+    transform: scale(1.2);
+    box-shadow: 0 8px 20px rgba(234, 67, 53, 0.5);
 }
 
 /* WhatsApp Icon Hover - Green */
 .contact-icon-whatsapp:hover {
     background: #25D366;
-    transform: scale(1.15);
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    transform: scale(1.2);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
 }
 
-.contact-icon i {
-    color: var(--bg-primary);
-    font-size: 1.2rem;
+/* Optional: Add cursor change to entire contact section */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.contact-icon i {
-    color: var(--bg-primary);
-    font-size: 1.2rem;
+.contact-icon-link:hover ~ .contact-details h4 {
+    color: var(--accent-primary);
+    transition: color 0.3s ease;
 }
 
 .contact-details h4 {
