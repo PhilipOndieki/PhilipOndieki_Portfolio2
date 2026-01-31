@@ -565,6 +565,20 @@ section {
 }
 
 /* Project-specific backgrounds */
+.mkulima-bg::before {
+    content: 'Mkulima Sharp';
+    color: var(--bg-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.eveshield-bg::before {
+    content: 'EveShield';
+    color: var(--bg-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
 .dualscope-bg::before {
     content: 'DualScope Engineering';
     color: var(--bg-primary);
@@ -797,6 +811,39 @@ section {
     flex-shrink: 0;
 }
 
+/* Clickable Contact Icons */
+.contact-icon-link {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Phone Icon Hover - Blue */
+.contact-icon-phone:hover {
+    background: var(--accent-primary);
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+/* Email Icon Hover - Gmail Red */
+.contact-icon-email:hover {
+    background: #EA4335;
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+}
+
+/* WhatsApp Icon Hover - Green */
+.contact-icon-whatsapp:hover {
+    background: #25D366;
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.contact-icon i {
+    color: var(--bg-primary);
+    font-size: 1.2rem;
+}
+
 .contact-icon i {
     color: var(--bg-primary);
     font-size: 1.2rem;
@@ -835,6 +882,10 @@ section {
 .contact-social a:hover {
     background: var(--accent-secondary);
     transform: scale(1.1);
+}
+
+.contact-social a[aria-label="WhatsApp"]:hover {
+    background: #25D366;
 }
 
 /* Contact Form */

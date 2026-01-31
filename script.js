@@ -373,17 +373,42 @@ Additional Skills:
 Version Control, Agile Methodology, Problem Solving, Technical Documentation
 
 FEATURED PROJECTS
-1. DualScope Engineering - Industrial Parts Catalog Platform
+1. Mkulima Sharp - Poultry E-Commerce Platform
+    Comprehensive e-commerce platform for poultry farming, specializing in chicks, chickens, and farming equipment including feeders and accessories with secure checkout.
+    Technologies: React, Firebase, Firestore, Tailwind CSS, Vercel
+    Live: https://mkulima-sharp.vercel.app/
+    
+    Key Features:
+    • Comprehensive product catalog for poultry
+    • Shopping cart and checkout system
+    • Secure payment processing
+    • Inventory management system
+    • Responsive e-commerce design
+
+2. EveShield - Women's Safety Advocacy Platform
+   🏆 PowerHacks 2025 Winner - Best Project in Africa
+   Award-winning women's safety advocacy platform featuring AI-powered chatbot, emergency response system, and secure payment integration. Winner of PowerHacks 2025, recognized as the best project across Africa.
+   Technologies: React, Firebase, Firestore, Gemini AI API, Paystack, Tailwind CSS, Vercel
+   Live: https://eveshield.vercel.app/
+   
+   Key Features:
+   • AI-powered chatbot using Gemini API
+   • Emergency response system
+   • Secure payment integration with Paystack
+   • Women's safety resources and advocacy
+   • Real-time database with Firestore
+
+3. DualScope Engineering - Industrial Parts Catalog Platform
    Professional industrial engineering e-commerce platform featuring comprehensive product catalog, Firebase backend, and modern UI for industrial parts and equipment.
    Technologies: React, Firebase, Firestore, Tailwind CSS, Vercel
-   Live: https://dualscopeengineering.vercel.app/   
+   Live: https://dualscopeengineering.com/  
    Key Features:
    • Comprehensive product catalog system
    • Firebase backend with Firestore database
    • Category filtering and search functionality
    • Responsive industrial-focused design
 
-2. Mindful Haven - MERN Stack Wellness Blog
+4. Mindful Haven - MERN Stack Wellness Blog
    Full-stack wellness and mental health blog platform with user authentication, rich content management, and social engagement features (likes, comments, bookmarks).
    Technologies: MongoDB, Express.js, React.js, Node.js, Clerk Authentication, Tailwind CSS
    Live: https://mindfulhaven2.onrender.com
@@ -395,7 +420,7 @@ FEATURED PROJECTS
    • Social engagement (likes, comments, bookmarks)
    • Responsive wellness-focused design
 
-3. InstaDev - Developer Social Network Platform
+5. InstaDev - Developer Social Network Platform
    Modern social networking platform connecting developers worldwide based on skill level, technology stack, and coding journey with glassmorphic UI.
    Technologies: HTML5, CSS3, Vanilla JavaScript, Three.js, Vite
    Live: https://instadev00.netlify.app/
@@ -408,7 +433,7 @@ FEATURED PROJECTS
    • Friend request and networking system
    • Glassmorphic UI with 3D background effects
 
-4. Personal Portfolio Website
+6. Personal Portfolio Website
    Modern, professional portfolio website with dark/light theme system, smooth scroll animations, responsive design, and functional contact form.
    Technologies: HTML5, CSS3, JavaScript (ES6+), CSS Custom Properties, Intersection Observer API
    Live: https://philip2.netlify.app/
@@ -420,7 +445,7 @@ FEATURED PROJECTS
    • Fully responsive design
    • Real-time contact form validation
 
-5. Echolia - Real-Time Chat Application
+7. Echolia - Real-Time Chat Application
    Feature-rich real-time chat application with Socket.io, private messaging, group chats, typing indicators, message reactions, and file sharing.
    Technologies: Socket.io, React, Node.js, Express, MongoDB, Cloudinary, JWT
    Live: https://echolia2.onrender.com
@@ -433,7 +458,7 @@ FEATURED PROJECTS
    • File sharing with Cloudinary integration
    • Read receipts and browser notifications
 
-6. Product API - RESTful Express.js & MongoDB
+8. Product API - RESTful Express.js & MongoDB
    Comprehensive RESTful API with full CRUD operations, API key authentication, custom middleware, and advanced filtering capabilities.
    Technologies: Express.js, MongoDB, Mongoose, Node.js, JWT, CORS
    GitHub: https://github.com/PhilipOndieki/restfulApi.git
@@ -445,7 +470,7 @@ FEATURED PROJECTS
    • Advanced filtering and pagination
    • Full-text search capability
 
-7. Kenya National Library System - Database Design
+9. Kenya National Library System - Database Design
    Complete relational database management system with 9 interconnected tables, all relationship types, and comprehensive constraints.
    Technologies: MySQL, SQL, Database Design, Normalization, ERD
    GitHub: https://github.com/PhilipOndieki/LibraryManagementSystem.git
@@ -456,7 +481,7 @@ FEATURED PROJECTS
    • Comprehensive constraints and data integrity
    • Real-world Kenyan context data
 
-8. Lipa na M-Pesa - Event Ticket Payment Integration
+10. Lipa na M-Pesa - Event Ticket Payment Integration
    Responsive event ticket purchasing application with integrated M-Pesa payment processing through Paystack for the Kenyan market.
    Technologies: HTML5, CSS3, Vanilla JavaScript, Paystack, PayPal SDK, Stripe.js, Font Awesome
    GitHub: https://github.com/PhilipOndieki/lipa-na-mpesa.git
