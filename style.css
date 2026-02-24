@@ -635,6 +635,20 @@ section {
     font-weight: 600;
 }
 
+.salamapay-bg::before {
+    content: 'SalamaPay';
+    color: var(--bg-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.mamashield-bg::before {
+    content: 'MamaShield';
+    color: var(--bg-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
 .project-overlay {
     position: absolute;
     top: 0;
