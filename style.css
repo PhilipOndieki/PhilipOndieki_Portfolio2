@@ -1197,6 +1197,12 @@ section {
     }
 }
 
+@media (max-width: 768px) {
+    .project-overlay {
+        opacity: 1;
+        background: rgba(74, 144, 226, 0.85);
+    }
+}
 /* Smooth Animations */
 .hero-text h1,
 .hero-text p,
