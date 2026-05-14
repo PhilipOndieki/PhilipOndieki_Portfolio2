@@ -190,6 +190,10 @@ function initAnimations() {
         '.section-header, .about-text, .skills-container, .timeline, .projects-grid, .interests-grid, .contact-content'
     );
     animateElements.forEach(el => observer.observe(el));
+
+    setTimeout(() => {
+        animateElements.forEach(el => el.classList.add('animate-in'));
+    }, 1500);
 }
 
 // Contact Form Management
