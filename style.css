@@ -531,15 +531,42 @@ section {
     font-size: 0.95rem;
 }
 
+.timeline-content ul {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-align: left;
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.timeline-content ul li {
+    margin-bottom: 0.4rem;
+}
+
 /* Projects Section */
 .projects {
     background: var(--bg-secondary);
+}
+
+.projects-subheading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent-primary);
+    padding-left: 0.75rem;
+    margin: 3rem 0 1.5rem;
+}
+
+.projects-subheading:first-of-type {
+    margin-top: 0;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    margin-bottom: 1rem;
 }
 
 .project-card {
@@ -649,6 +676,29 @@ section {
     font-weight: 600;
 }
 
+.insight-bg::before {
+    content: 'Insight AfriResearch';
+    color: var(--bg-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.webmerchants-bg::before {
+    content: 'Webmerchants';
+    color: var(--bg-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.nairobialert-bg::before {
+    content: 'NairobiAlert';
+    color: var(--bg-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
 .project-overlay {
     position: absolute;
     top: 0;
@@ -730,6 +780,61 @@ section {
     left: 0;
     color: var(--accent-primary);
     font-weight: bold;
+}
+
+/* Achievements Section */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.achievement-item {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    background: #d4af37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.achievement-icon i {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.achievement-item h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.achievement-project {
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.achievement-item p {
+    color: var(--text-secondary);
+    line-height: 1.8;
 }
 
 /* Interests Section */
@@ -1247,6 +1352,7 @@ section {
 .skills-container,
 .timeline,
 .projects-grid,
+.achievements-grid,
 .interests-grid,
 .contact-content {
     opacity: 0;
