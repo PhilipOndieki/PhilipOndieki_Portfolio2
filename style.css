@@ -699,6 +699,15 @@ section {
     font-weight: 600;
 }
 
+.tradingsim-bg::before {
+    content: 'Trading Simulator';
+    color: var(--bg-primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 1rem;
+}
+
 .project-overlay {
     position: absolute;
     top: 0;
