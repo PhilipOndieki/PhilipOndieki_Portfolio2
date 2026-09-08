@@ -21,7 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize hire me button and clickable image
     initHireMeButton();
     initClickableImage();
-    
+
+    // Initialize project hover video previews
+    initProjectPreviews();
+
     // Mark page as loaded
     document.body.classList.add('loaded');
 });
@@ -51,13 +54,46 @@ function initClickableImage() {
             e.preventDefault();
             const contactSection = document.querySelector('#contact');
             if (contactSection) {
-                contactSection.scrollIntoView({ 
+                contactSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
         });
     }
+}
+
+// Project Hover Video Previews - YouTube-style hover-to-play, mouse/trackpad only
+function initProjectPreviews() {
+    // Touch devices have no real "hover"; keep them on the static placeholder
+    // rather than risk a synthetic-hover autoplay on tap.
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    const previewContainers = document.querySelectorAll('.project-image.has-preview');
+
+    previewContainers.forEach(container => {
+        const video = container.querySelector('.preview-video');
+        if (!video) return;
+
+        let loaded = false;
+
+        container.addEventListener('mouseenter', function() {
+            if (!loaded) {
+                video.src = video.dataset.src;
+                loaded = true;
+            }
+            video.currentTime = 0;
+            video.play().catch(() => {
+                // Autoplay can be blocked in some contexts; the static
+                // placeholder simply stays visible if play() rejects.
+            });
+        });
+
+        container.addEventListener('mouseleave', function() {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
 }
 
 // Theme Management
@@ -170,30 +206,40 @@ function updateActiveNavLink() {
 }
 
 // Animation Management
+const STAGGERED_REVEAL_SELECTOR = '.project-card, .timeline-item, .skills-category, .achievement-item, .interest-item';
+const SOLO_REVEAL_SELECTOR = '.section-header, .about-text, .contact-content';
+const STAGGER_STEP_MS = 100;
+
 function initAnimations() {
-    // Intersection Observer for scroll animations
+    // Intersection Observer for scroll animations. Each element reveals itself
+    // independently as it enters the viewport (no global timeout fallback that
+    // would force-reveal off-screen content before the user scrolls to it).
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver(function(entries, obs) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
+                revealElement(entry.target);
+                obs.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll(
-        '.section-header, .about-text, .skills-container, .timeline, .projects-grid, .achievements-grid, .interests-grid, .contact-content'
-    );
+    const animateElements = document.querySelectorAll(`${SOLO_REVEAL_SELECTOR}, ${STAGGERED_REVEAL_SELECTOR}`);
     animateElements.forEach(el => observer.observe(el));
+}
 
-    setTimeout(() => {
-        animateElements.forEach(el => el.classList.add('animate-in'));
-    }, 1500);
+function revealElement(el) {
+    if (el.matches(STAGGERED_REVEAL_SELECTOR)) {
+        // Stagger relative to the element's own siblings so, e.g., cards in the
+        // third project grid don't inherit delay accumulated by earlier grids.
+        const siblingIndex = Array.prototype.indexOf.call(el.parentElement.children, el);
+        el.style.setProperty('--reveal-delay', `${siblingIndex * STAGGER_STEP_MS}ms`);
+    }
+    el.classList.add('animate-in');
 }
 
 // Contact Form Management

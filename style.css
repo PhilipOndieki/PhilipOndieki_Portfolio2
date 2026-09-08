@@ -583,34 +583,38 @@ section {
 }
 
 .project-image {
-    height: 200px;
+    aspect-ratio: 16 / 9;
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 /* Project-specific backgrounds */
+.mkulima-bg {
+    background: url('mkulimasharp2.png') center/cover no-repeat;
+}
+
 .mkulima-bg::before {
-    content: 'Mkulima Sharp';
-    color: var(--bg-primary);
-    font-size: 1.8rem;
-    font-weight: 600;
+    content: none;
+}
+
+.eveshield-bg {
+    background: url('eveshield2.png') center/cover no-repeat;
 }
 
 .eveshield-bg::before {
-    content: 'EveShield';
-    color: var(--bg-primary);
-    font-size: 1.8rem;
-    font-weight: 600;
+    content: none;
+}
+
+.dualscope-bg {
+    background: url('dualscopeengineering.png') center/cover no-repeat;
 }
 
 .dualscope-bg::before {
-    content: 'DualScope Engineering';
-    color: var(--bg-primary);
-    font-size: 1.8rem;
-    font-weight: 600;
+    content: none;
 }
 
 .mindful-haven-bg::before {
@@ -676,27 +680,28 @@ section {
     font-weight: 600;
 }
 
+.insight-bg {
+    background: url('afriresearch.png') center/cover no-repeat;
+}
+
 .insight-bg::before {
-    content: 'Insight AfriResearch';
-    color: var(--bg-primary);
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 0 1rem;
+    content: none;
+}
+
+.webmerchants-bg {
+    background: url('webmerchants.png') center/cover no-repeat;
 }
 
 .webmerchants-bg::before {
-    content: 'Webmerchants';
-    color: var(--bg-primary);
-    font-size: 1.8rem;
-    font-weight: 600;
+    content: none;
+}
+
+.nairobialert-bg {
+    background: url('nairobialert.png') center/cover no-repeat;
 }
 
 .nairobialert-bg::before {
-    content: 'NairobiAlert';
-    color: var(--bg-primary);
-    font-size: 1.8rem;
-    font-weight: 600;
+    content: none;
 }
 
 .tradingsim-bg::before {
@@ -721,10 +726,37 @@ section {
     gap: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 2;
 }
 
 .project-image:hover .project-overlay {
     opacity: 1;
+}
+
+/* Hover video preview (desktop/mouse only — see initProjectPreviews in script.js) */
+.preview-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project-image.has-preview:hover .preview-video {
+        opacity: 1;
+    }
+
+    /* Lighten the overlay on preview cards so the playing video reads through
+       instead of being hidden under the near-opaque brand-blue panel. */
+    .project-image.has-preview:hover .project-overlay {
+        background: rgba(10, 14, 25, 0.55);
+    }
 }
 
 .project-content {
@@ -1358,20 +1390,36 @@ section {
 /* Scroll Animations */
 .section-header,
 .about-text,
-.skills-container,
-.timeline,
-.projects-grid,
-.achievements-grid,
-.interests-grid,
-.contact-content {
+.contact-content,
+.project-card,
+.timeline-item,
+.skills-category,
+.achievement-item,
+.interest-item {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: var(--reveal-delay, 0s);
 }
 
 .animate-in {
     opacity: 1;
     transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .section-header,
+    .about-text,
+    .contact-content,
+    .project-card,
+    .timeline-item,
+    .skills-category,
+    .achievement-item,
+    .interest-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* Loading State */
